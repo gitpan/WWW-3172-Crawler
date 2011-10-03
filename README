@@ -1,0 +1,83 @@
+NAME
+    WWW::3172::Crawler - A simple web crawler for CSCI 3172 Assignment 1
+
+VERSION
+    version 0.001
+
+SYNOPSIS
+        use WWW::3172::Crawler;
+        my $crawler = WWW::3172::Crawler->new(host => 'http://hashbang.ca', max => 50);
+        my $stats = $crawler->crawl;
+        # Present the stats however you want
+
+METHODS
+  new
+    The constructor takes a mandatory 'host' parameter, which specifies the
+    starting point for the crawler. The 'max' parameter specifies how many
+    pages to visit, defaulting to 200.
+
+    Additional settings are:
+
+    *   debug - whether to print debugging information
+
+    *   ua - a LWP::UserAgent object to use to crawl. This can be used to
+        provide a mock useragent which doesn't connect to the internet for
+        testing.
+
+  crawl
+    Begins crawling at the provided link, collecting statistics as it goes.
+    The robot respects robots.txt. At the end of the crawling run, reports
+    some basic statistics for each page crawled:
+
+    *   description meta tag
+
+    *   keywords meta tag
+
+    *   page size
+
+    *   load time
+
+    The data is returned as a hash keyed on URL.
+
+    Image, video, and audio are also fetched, evaluated for size and speed.
+
+    Crawling ends when there are no more URLs in the crawl queue, or the
+    maximum number of pages is reached.
+
+    URLs are crawled in order of the number of appearances the crawler has
+    seen. This is somewhat similar to Google's PageRank algorithm, where
+    popularity of a page, as measured by inbound links, is a major factor in
+    a page's ranking in search results.
+
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you, or see
+    <http://search.cpan.org/dist/WWW-3172-Crawler/>.
+
+    The development version lives at
+    <http://github.com/doherty/WWW-3172-Crawler> and may be cloned from
+    <git://github.com/doherty/WWW-3172-Crawler.git>. Instead of sending
+    patches, please fork this project using the standard git and github
+    infrastructure.
+
+SOURCE
+    The development version is on github at
+    <http://github.com/doherty/WWW-3172-Crawler> and may be cloned from
+    <git://github.com/doherty/WWW-3172-Crawler.git>
+
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org>.
+
+AUTHOR
+    Mike Doherty <doherty@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Mike Doherty.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
