@@ -1,5 +1,11 @@
 Revision history for Perl module WWW-3172-Crawler
 
+v0.002    2011-10-19
+ - A callback for incremental processing and reduced memory usage
+ - A new CLI script to insert data into mysql
+ - A mysql schema
+ - Add a routine to parse HTML, remove stopwords, and stem the words
+
 0.001     2011-10-03
  - First stab at the crawler
     - Required stats: meta description and keywords

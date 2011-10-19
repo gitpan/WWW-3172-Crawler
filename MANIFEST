@@ -6,10 +6,15 @@ META.json
 META.yml
 Makefile.PL
 README
+TODO
 bin/crawler
+bin/crawler2mysql
+db.conf
 dist.ini
+doherty.sql
 lib/WWW/3172/Crawler.pm
 t/00-compile.t
+t/callback.t
 t/crawl.t
 t/horse.mp3
 t/horse.ogg
